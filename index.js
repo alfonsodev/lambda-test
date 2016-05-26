@@ -1,3 +1,5 @@
+require("babel-polyfill");
+
 exports.handler = async function(event, context) {
     //console.log('Received event:', JSON.stringify(event, null, 2));
     console.log('value1 =', event.key1);
