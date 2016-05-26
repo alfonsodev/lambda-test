@@ -9,12 +9,8 @@ exports.handler = async function(event, context) {
     var dest = '';
     try {
       console.log('current working directory :' + pwd())
-      if (!which('ffmpeg')) {
-        console.log('ffmpeg not found')
-        context.succeed("ffmpeg not found");  // Echo back the first key value
-      } else {
-        context.succeed("ffmpeg found");  // Echo back the first key value
-      }
+      chmod(755, '/var/task/ffmpeg');
+
       var ffmpeg = spawn('/var/task/ffmpeg', ['--version']);
       ffmpeg.stdout.on('data', (data) => {
         dest = data;
