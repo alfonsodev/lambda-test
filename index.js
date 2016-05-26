@@ -2,8 +2,13 @@ require("babel-polyfill");
 var spawn = require('child_process').spawn
 
 exports.handler = async function(event, context) {
+
     var dest = '';
+    try {
     var ffmpeg = spawn('ffmpeg', ['--version']);
+    } catch (e) {
+          context.succeed(e);  // Echo back the first key value
+    }
 
     ffmpeg.stdout.on('data', (data) => {
       dest = data;
