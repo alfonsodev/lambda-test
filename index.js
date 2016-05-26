@@ -1,7 +1,6 @@
 require("babel-polyfill");
 require('shelljs/global');
 var spawn = require('child_process').spawn
-var which = require('which');
 
 process.env['PATH'] = process.env['PATH'] + ':/tmp/:' + process.env['LAMBDA_TASK_ROOT']
 
