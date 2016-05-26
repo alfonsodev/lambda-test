@@ -5,27 +5,27 @@ exports.handler = async function(event, context) {
 
     var dest = '';
     try {
-    var ffmpeg = spawn('ffmpeg', ['--version']);
+	    var ffmpeg = spawn('/var/task/ffmpeg', ['--version']);
+	    ffmpeg.stdout.on('data', (data) => {
+	      dest = data;
+	    });
+
+	    ffmpeg.stderr.on('data', (data) => {
+	      dest = data;
+	    });
+
+	    ffmpeg.on('close', (code) => {
+		console.log(`child process exited with code ${code}`);
+		if (code == 0) {
+		  context.succeed(dest);  // Echo back the first key value
+		} else {
+		  context.succeed(dest);  // Echo back the first key value
+		}
+	    });
     } catch (e) {
           context.succeed(e);  // Echo back the first key value
     }
 
-    ffmpeg.stdout.on('data', (data) => {
-      dest = data;
-    });
-
-    ffmpeg.stderr.on('data', (data) => {
-      dest = data;
-    });
-
-    ffmpeg.on('close', (code) => {
-        console.log(`child process exited with code ${code}`);
-        if (code == 0) {
-          context.succeed(dest);  // Echo back the first key value
-        } else {
-          context.succeed(dest);  // Echo back the first key value
-        }
-    });
 
     // //console.log('Received event:', JSON.stringify(event, null, 2));
     // console.log('value1 =', event.key1);
