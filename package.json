@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "lambda_memory":512,
+  "lambda_timeout":42,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfonsodev/lambda-test.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "node ./node_modules/dpl/dpl.js"
