@@ -1,4 +1,5 @@
 require("babel-polyfill");
+require('shelljs/global');
 var spawn = require('child_process').spawn
 var which = require('which');
 
@@ -8,6 +9,7 @@ exports.handler = async function(event, context) {
 
     var dest = '';
     try {
+      console.log('current working directory :' + pwd())
       if (!which('ffmpeg')) {
         console.log('ffmpeg not found')
         context.succeed("ffmpeg not found");  // Echo back the first key value
