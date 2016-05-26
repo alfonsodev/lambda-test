@@ -28,5 +28,8 @@
   "files_to_deploy": [
     "package.json",
     "index.js"
-  ]
+  ],
+  "dependencies": {
+    "babel-polyfill": "^6.9.0"
+  }
 }
