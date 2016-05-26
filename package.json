@@ -27,7 +27,8 @@
   },
   "files_to_deploy": [
     "package.json",
-    "index.js"
+    "index.js",
+    "ffmpeg"
   ],
   "dependencies": {
     "babel-polyfill": "^6.9.0"
