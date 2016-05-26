@@ -7,6 +7,7 @@ exports.handler = async function(event, context) {
     var dest = '';
     try {
 	    if (!which('ffmpeg')) {
+		    console.log('ffmpeg not found') 
 		  context.succeed("ffmpeg not found");  // Echo back the first key value
 	    }
 	    var ffmpeg = spawn('/var/task/ffmpeg', ['--version']);
