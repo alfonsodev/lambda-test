@@ -1,5 +1,6 @@
 require("babel-polyfill");
 var spawn = require('child_process').spawn
+process.env['PATH'] = process.env['PATH'] + ':/tmp/:' + process.env['LAMBDA_TASK_ROOT']
 
 exports.handler = async function(event, context) {
 
