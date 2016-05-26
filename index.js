@@ -8,10 +8,7 @@ exports.handler = async function(event, context) {
 
     var dest = '';
     try {
-      console.log('current working directory :' + pwd())
-      chmod(755, '/var/task/ffmpeg');
-
-      var ffmpeg = spawn('/var/task/ffmpeg', ['--version']);
+      var ffmpeg = spawn('fmpeg', ['--version']);
       ffmpeg.stdout.on('data', (data) => {
         dest = data;
       });
